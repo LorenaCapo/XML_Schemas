@@ -6,8 +6,8 @@ xsi:schemaLocation="http://www.edreams.com edreams.xsd">
 	<ed:flyTicket>
 		<ed:journey>
 			<ed:idaYVuelta />
-			<ed:from>Palma de Mallorca (PMI)</ed:from>
-			<ed:to>Barcelona (BCN)</ed:to>
+			<ed:from WAC="PMI">Palma de Mallorca (PMI)</ed:from>
+			<ed:to WAC="BCN">Barcelona (BCN)</ed:to>
 		</ed:journey>
 		<ed:data>
 			<ed:dataFrom>2016-03-15</ed:dataFrom>

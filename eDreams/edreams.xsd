@@ -13,7 +13,7 @@
 		<xsd:element name="booking" type="ed:booking">
 			<xsd:complexType>
 				<xsd:sequence>
-					<xsd:element name="flyTicket" type="ed:flyTicketType"></xsd:element>
+					<xsd:element maxOccurs="unbounded" name="flyTicket" type="ed:flyTicketType"></xsd:element>
 				</xsd:sequence>
 			</xsd:complexType>
 		</xsd:element>
@@ -29,6 +29,8 @@
 		
 		<xsd:complexType name="journeyType">
 			<xsd:sequence>
+				<xs:element name="from" type="ed:tWAC"></xs:element>
+				<xs:element name="to" type="ed:tWAC"></xs:element>
 				<xsd:choice>
 					<xsd:element name="ida">
 						<xsd:complexType></xsd:complexType>
@@ -40,7 +42,7 @@
 						<xsd:complexType></xsd:complexType>
 					</xsd:element>
 				</xsd:choice>
-								<xsd:element name="from" type="xsd:string"></xsd:element>
+				<xsd:element name="from" type="xsd:string"></xsd:element>
 				<xsd:element name="to" type="xsd:string"></xsd:element>
 			</xsd:sequence>
 		</xsd:complexType>
@@ -59,6 +61,14 @@
 				<xsd:element minOccurs="0" name="baby" type="ed:travellerBaby"></xsd:element>
 			</xsd:sequence>
 		</xsd:complexType>
+		
+		<xs:complexType name="tWAC"> <!--  World Airport Code segun IATA -->
+				<xs:simpleContent> <!-- contenido simple -->
+					<xs:extension base="xs:string">
+						<xs:attribute name="WAC" type="ed:WAC"></xs:attribute>
+					</xs:extension>
+				</xs:simpleContent>
+		</xs:complexType>
 		
 
 </xsd:schema>
