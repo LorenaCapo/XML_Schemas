@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://www.edreams.com" 
+		xmlns:ed="http://www.edreams.com" 
+		elementFormDefault="qualified">
+
+	<xsd:import namespace="http://www.iata.com/wac"
+		schemaLocation="IATA/IATA.xsd">
+	</xsd:import>
+	<xsd:include schemaLocation="edreamsSimples.xsd"></xsd:include>
+
+<!-- ComplexType -->
+		<xsd:element name="booking" type="ed:booking">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="flyTicket" type="ed:flyTicketType"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		
+		<xsd:complexType name="flyTicketType">
+			<xsd:sequence>
+				<xsd:element name="journey" type="ed:journeyType"></xsd:element>
+				<xsd:element name="data" type="ed:dataType"></xsd:element>
+				<xsd:element name="traveller" type="ed:travellerType"></xsd:element>
+				<xsd:element name="class" type="ed:classType"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:complexType name="journeyType">
+			<xsd:sequence>
+				<xsd:choice>
+					<xsd:element name="ida">
+						<xsd:complexType></xsd:complexType>
+					</xsd:element>
+					<xsd:element name="idaYVuelta">
+						<xsd:complexType></xsd:complexType>
+					</xsd:element>
+					<xsd:element name="multidestino">
+						<xsd:complexType></xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+								<xsd:element name="from" type="xsd:string"></xsd:element>
+				<xsd:element name="to" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:complexType name="dataType">
+			<xsd:sequence>
+				<xsd:element name="dataFrom" type="xsd:date"></xsd:element>
+				<xsd:element name="dataTo" type="xsd:date"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:complexType name="travellerType">
+			<xsd:sequence>
+				<xsd:element name="adults" type="ed:travellerAdults"></xsd:element>
+				<xsd:element minOccurs="0" name="kids" type="ed:travellerKids"></xsd:element>
+				<xsd:element minOccurs="0" name="baby" type="ed:travellerBaby"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+
+</xsd:schema>
