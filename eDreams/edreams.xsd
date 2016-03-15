@@ -29,8 +29,8 @@
 		
 		<xsd:complexType name="journeyType">
 			<xsd:sequence>
-				<xs:element name="from" type="ed:tWAC"></xs:element>
-				<xs:element name="to" type="ed:tWAC"></xs:element>
+				<xsd:element name="from" type="ed:tWAC"></xsd:element>
+				<xsd:element name="to" type="ed:tWAC"></xsd:element>
 				<xsd:choice>
 					<xsd:element name="ida">
 						<xsd:complexType></xsd:complexType>
@@ -57,18 +57,41 @@
 		<xsd:complexType name="travellerType">
 			<xsd:sequence>
 				<xsd:element name="adults" type="ed:travellerAdults"></xsd:element>
-				<xsd:element minOccurs="0" name="kids" type="ed:travellerKids"></xsd:element>
-				<xsd:element minOccurs="0" name="baby" type="ed:travellerBaby"></xsd:element>
+				<xsd:element maxOccurs="1" minOccurs="0" name="kids" type="ed:travellerKids"></xsd:element>
+				<xsd:element maxOccurs="1" minOccurs="0" name="baby" type="ed:travellerBaby"></xsd:element>
 			</xsd:sequence>
 		</xsd:complexType>
 		
-		<xs:complexType name="tWAC"> <!--  World Airport Code segun IATA -->
-				<xs:simpleContent> <!-- contenido simple -->
-					<xs:extension base="xs:string">
-						<xs:attribute name="WAC" type="ed:WAC"></xs:attribute>
-					</xs:extension>
-				</xs:simpleContent>
-		</xs:complexType>
+		<xsd:complexType name="tWAC"> <!--  World Airport Code segun IATA -->
+				<xsd:simpleContent>
+					<xsd:extension base="xs:string">
+						<xsd:attribute name="WAC" type="ed:WAC"></xsd:attribute>
+					</xsd:extension>
+				</xsd:simpleContent>
+		</xsd:complexType>
+		
+		
+		
+		<xsd:complexType name="extTravellerType">
+		<xsd:complexContent>
+			<xsd:extension base="ed:travellerType">
+				<xsd:sequence>
+					<xsd:element name="animals" type="xs:integer"></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="extTravellerPackageType">
+		<xsd:complexContent>
+			<xsd:extension base="ed:travelleType">
+				<xsd:sequence>
+					<xsd:element name="bicycle" type="xs:integer" minOccurs="0"></xsd:element>
+					<xsd:element name="instruments" type="xs:integer" minOccurs="0"></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
 		
 
 </xsd:schema>

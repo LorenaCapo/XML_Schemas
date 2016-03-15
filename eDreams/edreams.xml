@@ -13,10 +13,15 @@ xsi:schemaLocation="http://www.edreams.com edreams.xsd">
 			<ed:dataFrom>2016-03-15</ed:dataFrom>
 			<ed:dataTo>2016-03-30</ed:dataTo>
 		</ed:data>
-		<ed:traveller>
+		<ed:traveller xsi:type="ed:extTravellerType ed:extTravellerPackageType">
 			<ed:adults>1</ed:adults>
 			<ed:kids>1</ed:kids>
 			<ed:baby>0</ed:baby>
+			
+			<ed:animals></ed:animals>
+			
+			<ed:bicycles></ed:bicycles>
+			<ed:instruments></ed:instruments>
 		</ed:traveller>
 		<ed:class>turista</ed:class>
 	</ed:flyTicket>
